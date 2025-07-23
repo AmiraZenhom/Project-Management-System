@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { Link } from 'react-router-dom'
 import Photo from "../../../../assets/images/noData1.png"
 export default function NotFound() {

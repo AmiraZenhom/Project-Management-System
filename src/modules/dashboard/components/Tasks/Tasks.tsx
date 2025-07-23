@@ -1,26 +1,25 @@
 import axios from "axios";
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import {
-  BASEURL,
+ 
   PROJECTSURLS,
   requestHeader,
   TASKSURLS,
   USERSSURLS,
 } from "../../../../Constants/URLS";
 import { FaEye } from "react-icons/fa";
-import { MdBlock, MdDelete } from "react-icons/md";
+import {  MdDelete } from "react-icons/md";
 import Modal from "react-bootstrap/Modal";
 import NoData from "../../../shared/components/NoData/NoData";
-import { toast } from "react-toastify";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+
+import {  useNavigate } from "react-router-dom";
 import { BiEdit } from "react-icons/bi";
 import Dropdown from "react-bootstrap/Dropdown";
-import Button from "react-bootstrap/Button";
-import deletePhoto from "../../../../assets/images/delete1.jpg";
+
+
 import { useForm } from "react-hook-form";
 import DeleteConformation from "../../../shared/components/DeleteConformation/DeleteConformation";
-import { Pagination } from "react-bootstrap";
-import Paginations from "../../../shared/components/Pagination/Paginations";
+
 import { AuthContext } from "../../../../Contxet/AuthContext";
 import TaskUser from "../TaskUser/TaskUser";
 

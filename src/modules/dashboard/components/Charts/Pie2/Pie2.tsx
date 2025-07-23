@@ -1,9 +1,7 @@
-import React, { useContext, useEffect, useState } from "react";
+import  {  useEffect, useState } from "react";
 import axios from "axios";
 
-import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
-
-import { Tooltip } from "react-bootstrap";
+import { PieChart, Pie, Cell} from "recharts";
 import { requestHeader, USERSSURLS } from "../../../../../Constants/URLS";
 interface Count {
   activatedEmployeeCount: number;

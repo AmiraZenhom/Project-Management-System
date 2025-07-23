@@ -1,5 +1,5 @@
 import { jwtDecode } from 'jwt-decode';
-import React, { createContext, useEffect, useState } from 'react'
+import { createContext, useEffect, useState } from 'react'
 
 interface DecodedToken {
   userId: number;

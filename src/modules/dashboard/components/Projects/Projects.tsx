@@ -1,22 +1,18 @@
 import axios from "axios";
-import React, { useContext, useEffect, useState } from "react";
-import {
-  BASEURL,
-  requestHeader,
-  PROJECTSURLS,
-} from "../../../../Constants/URLS";
+import { useContext, useEffect, useState } from "react";
+import { requestHeader, PROJECTSURLS } from "../../../../Constants/URLS";
 import { FaEye } from "react-icons/fa";
-import { MdBlock, MdDelete } from "react-icons/md";
+import { MdDelete } from "react-icons/md";
 import Modal from "react-bootstrap/Modal";
 import NoData from "../../../shared/components/NoData/NoData";
-import { toast } from "react-toastify";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+
+import { useNavigate } from "react-router-dom";
 import { BiEdit } from "react-icons/bi";
 import Dropdown from "react-bootstrap/Dropdown";
-import Button from "react-bootstrap/Button";
+
 import { useForm } from "react-hook-form";
 import DeleteConformation from "../../../shared/components/DeleteConformation/DeleteConformation";
-import Pagination from "react-bootstrap/Pagination";
+
 import Paginations from "../../../shared/components/Pagination/Paginations";
 import { AuthContext } from "../../../../Contxet/AuthContext";
 
@@ -29,7 +25,7 @@ interface project {
 }
 
 export default function Projects() {
-  let {loginData}:any=useContext(AuthContext)
+  let { loginData }: any = useContext(AuthContext);
   const [projectsList, setProjectsList] = useState<project[]>([]);
   const [projectDetails, setProjectDetails] = useState<project | null>(null);
   const [show, setShow] = useState(false);
@@ -85,24 +81,24 @@ export default function Projects() {
   //   }
   // };
   const getProjectsList = async (pageNo: any, pageSize: any) => {
-  try {
-    const url =
-      loginData?.userGroup === "Employee"
-        ? PROJECTSURLS.getAllEmployee
-        : PROJECTSURLS.getAll;
+    try {
+      const url =
+        loginData?.userGroup === "Employee"
+          ? PROJECTSURLS.getAllEmployee
+          : PROJECTSURLS.getAll;
 
-    const response = await axios.get(url, {
-      params: { pageSize: pageSize, pageNumber: pageNo },
-      headers: requestHeader(),
-    });
+      const response = await axios.get(url, {
+        params: { pageSize: pageSize, pageNumber: pageNo },
+        headers: requestHeader(),
+      });
 
-    setProjectsList(response.data.data);
-    setTotalPages(response?.data?.totalNumberOfPages || 1);
-    console.log(response.data.data);
-  } catch (error) {
-    console.log(error);
-  }
-};
+      setProjectsList(response.data.data);
+      setTotalPages(response?.data?.totalNumberOfPages || 1);
+      console.log(response.data.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   /*****************************View*************************/
   let getProjectDetails = async (id: number) => {
@@ -178,16 +174,19 @@ export default function Projects() {
             <div className="col-md-6">
               <h2 className="  ">projects</h2>
             </div>
-             {loginData?.userGroup!=="Employee"?(<div className="col-md-6 text-end ">
-              <button
-                className="btn btn-warning text-center text-white rounded rounded-5 "
-                onClick={AddNewProjects}
-              >
-                {" "}
-                + Add New Project{" "}
-              </button>
-            </div>):("")}
-            
+            {loginData?.userGroup !== "Employee" ? (
+              <div className="col-md-6 text-end ">
+                <button
+                  className="btn btn-warning text-center text-white rounded rounded-5 "
+                  onClick={AddNewProjects}
+                >
+                  {" "}
+                  + Add New Project{" "}
+                </button>
+              </div>
+            ) : (
+              ""
+            )}
           </div>
         </div>
       </div>
@@ -204,8 +203,11 @@ export default function Projects() {
                 <th scope="col">No of Task</th>
 
                 <th scope="col">ModificationDate</th>
-                {loginData?.userGroup!=="Employee"?( <th scope="col">Action</th>):("")}
-               
+                {loginData?.userGroup !== "Employee" ? (
+                  <th scope="col">Action</th>
+                ) : (
+                  ""
+                )}
               </tr>
             </thead>
             <tbody className="bgTable">
@@ -216,41 +218,46 @@ export default function Projects() {
                   <td>{project.description}</td>
                   <td>{project?.task.length}</td>
                   <td>{project.modificationDate.slice(0, 10)}</td>
-                  {loginData?.userGroup!=="Employee"?( <td>
-                    <Dropdown>
-                      <Dropdown.Toggle
-                        variant=" white"
-                        id="dropdown-basic"
-                      ></Dropdown.Toggle>
+                  {loginData?.userGroup !== "Employee" ? (
+                    <td>
+                      <Dropdown>
+                        <Dropdown.Toggle
+                          variant=" white"
+                          id="dropdown-basic"
+                        ></Dropdown.Toggle>
 
-                      <Dropdown.Menu>
-                        <Dropdown.Item
-                          onClick={() => showViewModel(project.id)}
-                        >
-                          <i className="  text-success px-2">
+                        <Dropdown.Menu>
+                          <Dropdown.Item
+                            onClick={() => showViewModel(project.id)}
+                          >
+                            <i className="  text-success px-2">
+                              {" "}
+                              <FaEye /> View
+                            </i>{" "}
+                          </Dropdown.Item>
+                          <Dropdown.Item
+                            onClick={() => showUpdateModel(project)}
+                          >
+                            <i className=" text-warning px-2">
+                              {" "}
+                              <BiEdit /> Up data
+                            </i>
+                          </Dropdown.Item>{" "}
+                          <Dropdown.Item
+                            onClick={() => handleShowDelete(project.id)}
+                          >
                             {" "}
-                            <FaEye /> View
-                          </i>{" "}
-                        </Dropdown.Item>
-                        <Dropdown.Item onClick={() => showUpdateModel(project)}>
-                          <i className=" text-warning px-2">
-                            {" "}
-                            <BiEdit /> Up data
-                          </i>
-                        </Dropdown.Item>{" "}
-                        <Dropdown.Item
-                          onClick={() => handleShowDelete(project.id)}
-                        >
-                          {" "}
-                          <i className="  text-danger px-2">
-                            {" "}
-                            <MdDelete /> Delete
-                          </i>
-                        </Dropdown.Item>
-                      </Dropdown.Menu>
-                    </Dropdown>{" "}
-                  </td>):("")}
-                 
+                            <i className="  text-danger px-2">
+                              {" "}
+                              <MdDelete /> Delete
+                            </i>
+                          </Dropdown.Item>
+                        </Dropdown.Menu>
+                      </Dropdown>{" "}
+                    </td>
+                  ) : (
+                    ""
+                  )}
                 </tr>
               ))}
             </tbody>

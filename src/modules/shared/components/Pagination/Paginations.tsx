@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { Pagination } from "react-bootstrap";
 export default function Paginations({pageNumber,setPageNumber,totalPages}:any) {
   return (
@@ -21,7 +21,7 @@ export default function Paginations({pageNumber,setPageNumber,totalPages}:any) {
                     (page >= pageNumber - 2 && page <= pageNumber + 2)
                   );
                 })
-                .map((page, index, array) => (
+                .map((page) => (
                   <Pagination.Item
                     key={page}
                     active={page === pageNumber}

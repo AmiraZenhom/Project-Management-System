@@ -1,5 +1,4 @@
-import React from 'react'
-import header from "../../../../assets/images/home-bg.png";
+
 export default function Header({loginData}:any) {
   return (
     <>

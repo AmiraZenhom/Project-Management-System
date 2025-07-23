@@ -14,18 +14,18 @@ import Tasks from "./modules/dashboard/components/Tasks/Tasks";
 import Users from "./modules/dashboard/components/Users/Users";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useContext, useEffect, useState } from "react";
-import { jwtDecode } from "jwt-decode";
+
+
 import ProtectedRoute from "./modules/shared/components/ProtectedRoute/ProtectedRoute";
 import AddProject from "./modules/dashboard/components/AddProject/AddProject";
 import AddTask from "./modules/dashboard/components/AddTask/AddTask";
 import Verify from "./modules/authentication/component/Verify/Verify";
 import ProtectedRouteUser from "./modules/shared/components/ProtectedRouteUser/ProtectedRouteUser";
-import { AuthContext } from "./Contxet/AuthContext";
+
 
 
 function App() {
-  let { loginData }: any = useContext(AuthContext);
+ 
 
 
   const routes = createBrowserRouter([

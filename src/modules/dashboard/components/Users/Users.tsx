@@ -1,6 +1,6 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { BASEURL, requestHeader, USERSSURLS } from "../../../../Constants/URLS";
+import  { useEffect, useState } from "react";
+import {  requestHeader, USERSSURLS } from "../../../../Constants/URLS";
 import { FaEye } from "react-icons/fa";
 import { MdBlock } from "react-icons/md";
 import Modal from "react-bootstrap/Modal";

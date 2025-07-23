@@ -1,7 +1,7 @@
-import React, { useContext, useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import axios from "axios";
 import { PieChart, Pie, Cell } from "recharts";
-import { AuthContext } from "../../../../../Contxet/AuthContext";
+
 import { requestHeader, TASKSURLS } from "../../../../../Constants/URLS";
 
 interface Count {
@@ -50,7 +50,7 @@ export default function Pie1() {
     innerRadius,
     outerRadius,
     percent,
-    index,
+   
   }: any) => {
     const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
     const x = cx + radius * Math.cos(-midAngle * RADIAN);
@@ -87,7 +87,7 @@ export default function Pie1() {
               labelLine={false}
               label={renderCustomizedLabel}
             >
-              {data.map((data, index) => (
+              {data.map((index:any) => (
                 <Cell
                   key={`cell-${index}`}
                   fill={COLORS[index % COLORS.length]}
