@@ -64,7 +64,7 @@ export default function Tasks() {
   const [show, setShow] = useState(false);
   const [showDelete, setShowDelete] = useState(false);
   const [taskId, setTaskId] = useState(0);
-  const [pageNumber, setPageNumber] = useState<number>(1);
+  const [pageNumber] = useState<number>(1);
   const [totalPages, setTotalPages] = useState<number>(0);
   const [modelState, setModelState] = useState("close");
   const [usersList, setUsersList] = useState<user[]>([]);
@@ -101,6 +101,7 @@ export default function Tasks() {
       console.log(error);
     }
   };
+console.log(totalPages,projectList);
 
   /*********************list************************ */
   let getProjectsList = async (pageNo: number, pageSize: number) => {

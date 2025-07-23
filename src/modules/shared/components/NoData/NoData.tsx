@@ -1,4 +1,4 @@
-import React from 'react'
+
 import noDataPhoto from "../../../../assets/images/download (1).jpg"
 export default function noData() {
   return (

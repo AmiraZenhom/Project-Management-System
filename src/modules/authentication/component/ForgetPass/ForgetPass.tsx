@@ -23,6 +23,8 @@ export default function ForgetPass() {
       );
       toast.success("go to resrt");
       Navigate("/reset");
+      
+ console.log(response)
     } catch (error: any) {
       toast.error(error.response.data.message);
     }

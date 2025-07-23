@@ -61,7 +61,7 @@ export default function Users() {
         toast.error(" User is not Active ");
       }
     } catch (error) {
-      console.log(error);
+      console.log(error,userId);
     }
   };
 

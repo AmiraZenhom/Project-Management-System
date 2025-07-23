@@ -19,6 +19,7 @@ export default function Register() {
       let response = await axios.post(`${AUTHURLS.registerUrl}`, data);
       toast.success("Register successfully");
       Navigate("/verify");
+      console.log(response)
     } catch (error: any) {
       toast.error(error.response.data.message);
     }

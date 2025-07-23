@@ -22,6 +22,8 @@ export default function AddProject() {
       toast.success("Add Projects successfully");
 
       Navigate("/dashboard/projects");
+      console.log(response);
+      
     } catch (error: any) {
       toast.error(error.response.data.message);
     }

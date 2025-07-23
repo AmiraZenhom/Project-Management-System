@@ -23,6 +23,7 @@ export default function Verify() {
       );
       toast.success("Verify successfully.");
       Navigate("/login");
+       console.log(response)
     } catch (error: any) {
       toast.error(error.response.data.message);
     }
