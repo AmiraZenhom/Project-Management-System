@@ -1,0 +1,103 @@
+body{
+    background-color: rgba(236, 236, 236, 1);
+}
+/******************************* authentication *************************************/
+.Auth-container{
+    width: 100%;
+    height: 100vh;
+    background-image: url(../src/assets/images/bg1.png);
+    background-position: center center;
+    background-size: cover;
+    overflow: hidden;
+}
+.textColor{
+    color: #EF9B28;
+}
+.Auth-container .inputs{
+    background: transparent;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-radius: 0px;
+    width: 100%;
+    outline: none;
+    color:white;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    -ms-border-radius: 0px;
+    -o-border-radius: 0px;
+}
+.caption{
+    
+    border-radius: 20px;
+    padding:20px 0;
+    background-color: rgba(49, 89, 81, 0.9);
+    color: orange;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+.buttonLink{
+    background-color: orange;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 50px;
+    width: 95% ;
+    margin: auto;
+    padding: 6px;
+    border: none;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+}
+.Auth-container .inputs::placeholder{
+    color: rgb(230, 230, 230);
+}
+/******************************* sidebar *************************************/
+.sidebar-container .ps-menu-button:hover{
+          background-color: rgba(239, 155, 40, 0.3)!important;
+
+ }
+
+ .sidelogo{
+    width: 100px;
+ }
+/******************************* header *************************************/
+.h-50{
+    height: 250px !important;
+}
+ .bgheader{
+    background-image:url(./assets/images/home-bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+   height: 10px;
+
+    
+ }
+
+/*******************************Table**************************************/
+
+    .table .bgThTable {
+        --bs-table-bg: rgba(49, 89, 81, 0.9) !important;
+        --bs-table-color:#fff !important
+       
+    } 
+    .table .bgTable{
+        --bs-table-bg:rgba(239, 155, 40, 0.5)
+    }
+/********************************view model**************************/
+.MStyle{
+    --bs-modal-color: #EF9B28;
+    background-color: inherit;
+     --bs-modal-bg: rgba(49, 89, 81, 1) !important;
+}
+
+.pagination{
+      --bs-pagination-color: #198754 !important;
+    --bs-pagination-active-border-color: #198754 !important;
+    --bs-pagination-active-bg: #198754;
+    --bs-pagination-hover-color:#EF9B28;
+}
