@@ -87,9 +87,9 @@ export default function Pie1() {
               labelLine={false}
               label={renderCustomizedLabel}
             >
-              {data.map((index:any) => (
+              {data.map((data,index) => (
                 <Cell
-                  key={`cell-${index}`}
+                  key={data.name}
                   fill={COLORS[index % COLORS.length]}
                 />
               ))}
