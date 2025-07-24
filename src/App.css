@@ -65,6 +65,9 @@ body{
  .sidelogo{
     width: 100px;
  }
+ .ps-sidebar-container{
+height: 950px !important;
+ }
 /******************************* header *************************************/
 .h-50{
     height: 250px !important;
